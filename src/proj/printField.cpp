@@ -26,13 +26,13 @@ void printField(Player &player1, Player &player2, Ball &ball) {
             }
            
             if (ball.x == i && ball.y == j) {
-                std::cout << 'O';
+                std::cout << '@';
             } 
             if (player1.getX() == i && player1.getY() == j) {
-                std::cout << ')';
+                std::cout << '>';
             } 
             if (player2.getX() == i && player2.getY() == j) {
-                std::cout << '(';
+                std::cout << '<';
             } 
             else {
                 std::cout << field[i][j];

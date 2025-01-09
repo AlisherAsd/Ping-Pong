@@ -18,7 +18,7 @@ int Ball::getDirection() {
 }
 
 void Ball::setDirection(int d) {
-    if (d == 1) prevx = rand();
+        ;
     if (d == 0) prevx = rand();
     direction = d;
 }

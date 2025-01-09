@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ncurses.h>
 
 
 const int x = 10;
@@ -81,8 +82,8 @@ public:
     }
 
     void getInfo() {
-        std::cout << "player " << name << " x = " << x << std::endl;
-        std::cout << "player " << name << " y = " << y << std::endl;
+        // std::cout << "player " << name << " x = " << x << std::endl;
+        // std::cout << "player " << name << " y = " << y << std::endl;
         std::cout << "player " << name << " points = " << points << std::endl;
     }
 
@@ -215,13 +216,13 @@ void printField(Player &player1, Player &player2, Ball &ball) {
             }
            
             if (ball.x == i && ball.y == j) {
-                std::cout << 'O';
+                std::cout << '@';
             } 
             if (player1.getX() == i && player1.getY() == j) {
-                std::cout << ')';
+                std::cout << '>';
             } 
             if (player2.getX() == i && player2.getY() == j) {
-                std::cout << '(';
+                std::cout << '<';
             } 
             else {
                 std::cout << field[i][j];
@@ -270,12 +271,12 @@ int main() {
         system("clear");
         player1.getInfo();
         player2.getInfo();
-        ball.getInfo();
-        ball.infoVector();
+        // ball.getInfo();
+        // ball.infoVector();
         printField(player1, player2, ball);
         std::cout << "Move  " << ball.getDirection() + 1 << " (w, s, d, a): ";
         std::cout << " GOUNT: " << getControl << std::endl;
-        std::cin >> m;
+        m = getchar();
         if (ball.getDirection() == 1) {
             player2.move(m, 2);
         }
@@ -292,7 +293,10 @@ int main() {
     system("clear");
     std::cout << "------------------------------------------------------------------------------" << std::endl;
     std::cout << "---------- " << winner << "  Winner! -----------------------" << std::endl;
-    std::cout << "---------------------------------------------------------------------------" << std::endl;
+    std::cout << "---------- player " << s1 << ": " << player1.getPoints() << " points -----------------------" << std::endl;    
+    std::cout << "---------- player " << s2 << ": " << player2.getPoints() << " points -----------------------" << std::endl;  
+    std::cout << "------------------------------------------------------------------------------" << std::endl;
+  
 
 
     return 0;
